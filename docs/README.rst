@@ -61,8 +61,11 @@ Installs the proftpd package, and starts the associated proftpd service.
 
 ``proftpd.database``
 ^^^^^^^^^^^^^^^^^^^^
-
 Configures database authentication.
+
+``proftpd.sftp``
+^^^^^^^^^^^^^^^^
+Set sftp configuration.
 
 Testing
 -------

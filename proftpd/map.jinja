@@ -1,10 +1,11 @@
-{% import_yaml "proftpd/defaults.yaml" as default_settings %}
+{% import_yaml "proftpd/defaults.yaml" 	as default_settings %}
 
 {% set os_family_map = salt['grains.filter_by']({
     'Ubuntu': {
         'pkg': 'proftpd-basic',
         'config': '/etc/proftpd/proftpd.conf',
         'sql_config': '/etc/proftpd/sql.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'modules_config': '/etc/proftpd/modules.conf',
         'mysql': 'proftpd-mod-mysql',
         'postgres': 'proftpd-mod-pgsql',
@@ -14,6 +15,7 @@
         'pkg': 'proftpd-basic',
         'config': '/etc/proftpd/proftpd.conf',
         'sql_config': '/etc/proftpd/sql.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'modules_config': '/etc/proftpd/modules.conf',
         'mysql': 'proftpd-mod-mysql',
         'postgres': 'proftpd-mod-pgsql',
@@ -22,6 +24,7 @@
     'RedHat': {
         'pkg': 'proftpd',
         'config': '/etc/proftpd.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'modules_config': '/etc/proftpd/modules.conf',
         'service': 'proftpd',
     },
@@ -29,16 +32,17 @@
         'pkg': 'proftpd',
         'config': '/etc/proftpd/proftpd.conf',
         'modules_config': '/etc/proftpd/modules.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'service': 'proftpd',
     },
     'Gentoo': {
         'pkg': 'net-ftp/proftpd',
         'config': '/etc/proftpd/proftpd.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'modules_config': '/etc/proftpd/modules.conf',
         'service': 'proftpd',
     },
-    }, merge=salt['pillar.get']('proftpd:lookup'))
-%}
+}, merge=salt['pillar.get']('proftpd:lookup')) %}
 
 {# Merge the flavor_map to the default settings #}
 {% do default_settings.proftpd.update(os_family_map) %}
