@@ -69,3 +69,6 @@ proftpd:
   Modules:
     mod_radius: false
     mod_ident: true
+    mod_sftp: true
+  SFTP:
+    Port: 4000

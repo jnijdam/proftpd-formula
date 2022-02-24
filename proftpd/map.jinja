@@ -7,6 +7,7 @@
         'sql_config': '/etc/proftpd/sql.conf',
         'modules_config': '/etc/proftpd/modules.conf',
         'mysql': 'proftpd-mod-mysql',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'postgres': 'proftpd-mod-pgsql',
         'service': 'proftpd',
     },
@@ -15,6 +16,7 @@
         'config': '/etc/proftpd/proftpd.conf',
         'sql_config': '/etc/proftpd/sql.conf',
         'modules_config': '/etc/proftpd/modules.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'mysql': 'proftpd-mod-mysql',
         'postgres': 'proftpd-mod-pgsql',
         'service': 'proftpd',
@@ -23,22 +25,24 @@
         'pkg': 'proftpd',
         'config': '/etc/proftpd.conf',
         'modules_config': '/etc/proftpd/modules.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'service': 'proftpd',
     },
     'Suse': {
         'pkg': 'proftpd',
         'config': '/etc/proftpd/proftpd.conf',
         'modules_config': '/etc/proftpd/modules.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'service': 'proftpd',
     },
     'Gentoo': {
         'pkg': 'net-ftp/proftpd',
         'config': '/etc/proftpd/proftpd.conf',
         'modules_config': '/etc/proftpd/modules.conf',
+        'sftp_config': '/etc/proftpd/sftp.conf',
         'service': 'proftpd',
     },
-    }, merge=salt['pillar.get']('proftpd:lookup'))
-%}
+}, merge=salt['pillar.get']('proftpd:lookup')) %}
 
 {# Merge the flavor_map to the default settings #}
 {% do default_settings.proftpd.update(os_family_map) %}
