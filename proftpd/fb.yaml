@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+proftpd:
+  UseIPv6: 'off'
+  DisplayLogin: 'welcome.msg'
+  HiddenStores: 'on'
+  DeleteAbortedStores: 'on'
+  TransferLog: /var/log/proftpd/xferlog
+  SystemLog: /var/log/proftpd/proftpd.log
