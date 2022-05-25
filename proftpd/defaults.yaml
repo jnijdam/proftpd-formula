@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+proftpd:
+  SFTP:
+    SFTPEngine: 'on'
+    Port: 922
+    SFTPLog: /var/log/proftpd/sftp.log
+    TransferLog: /var/log/proftpd/sftp_xferlog
+    RequireValidShell: 'off'
+    HiddenStores: 'on'
+    DefaultRoot: '~'
+    AllowOverwrite: 'on'
+    DeleteAbortedStores: 'on'
+    Umask: 007 007
+    SFTPOptions: >-
+      IgnoreSFTPUploadPerms
+      IgnoreSCPUploadPerms
+      IgnoreSFTPSetOwners
+      IgnoreSFTPSetPerms
+    SFTPAuthMethods: 'publickey password'
+    SFTPAuthorizedUserKeys: file:/etc/proftpd/authorized_keys/%u.conf
+    SFTPCompression: 'delayed'
+    SFTPHostKey: /etc/ssh/ssh_host_rsa_key

@@ -92,3 +92,9 @@ proftpd:
     # Modules:
     #   - mod_ctrls_admin
     #   - mod_radius
+    # REQUIRED: Add SFTP mod in sftp state
+    #   - mod_sftp
+    # Manage SFTP configuration in sftp.conf
+    # SFTP:
+    #   Default list of sftp configuration is visible in defaults.yaml
+    #   SFTPLog: /var/log/proftpd/sftp.log

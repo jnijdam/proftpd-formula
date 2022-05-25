@@ -64,6 +64,14 @@ Installs the proftpd package, and starts the associated proftpd service.
 
 Configures database authentication.
 
+``proftpd.sftp``
+^^^^^^^^^^^^^^^^
+
+Set sftp configuration.
+Require Modules pillar: mod_sftp
+
+
+
 Testing
 -------
 
